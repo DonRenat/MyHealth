@@ -1,0 +1,24 @@
+PODS:
+  - Cards (1.4.0):
+    - Player (= 0.13.0)
+  - Comets (0.3.1)
+  - Player (0.13.0)
+
+DEPENDENCIES:
+  - Cards
+  - Comets
+
+SPEC REPOS:
+  trunk:
+    - Cards
+    - Comets
+    - Player
+
+SPEC CHECKSUMS:
+  Cards: 45ae6bd0eca7b5e8016d3b6cb30b60b04753f68f
+  Comets: ff75eb4658d612af66073bf9fcf6e8bef274817b
+  Player: 968d8d07d923bcdd6f7e4091c9e306eb44a5f7a4
+
+PODFILE CHECKSUM: 008448662c2e87eb7b2a3ec4a1b3b515840ed126
+
+COCOAPODS: 1.8.4
