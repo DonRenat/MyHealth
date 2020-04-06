@@ -19,11 +19,8 @@ class ViewController: UIViewController {
     //future update: take data from server
     var temperature : [Double] = [36.7, 37.0, 38.2, 39.3, 37.0, 36.6]
     var pulse : [Double] = [66, 80, 73, 55, 59, 90]
-    
-    //test feeling
-    //var feeling : [Double] = [1, 2, 3, 4, 5, 6]
-    let status = ["Good", "Medium", "Bad", "SOS"]
-    let statusAmount = [10, 13, 4, 1]
+    var status = ["Good", "Medium", "Bad", "SOS"]
+    var statusAmount = [10, 13, 4, 1]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,6 +68,7 @@ class ViewController: UIViewController {
         Chart.rightAxis.enabled = false
         Chart.xAxis.enabled = false
         updateLineChart(data: temperature)
+        Chart.setScaleEnabled(false)
     }
 
     @IBAction func indexChanged(_ sender: Any) {
@@ -106,11 +104,15 @@ class ViewController: UIViewController {
         
         let line1 = LineChartDataSet(entries: lineChartEntry, label: description)
         line1.colors = [NSUIColor.blue]
+        line1.drawFilledEnabled = true
+        
+        line1.mode = .cubicBezier
 
         let data = LineChartData() //This is the object that will be added to the chart
         data.addDataSet(line1) //Adds the line to the dataSet
         
         Chart.data = data
+        Chart.animate(xAxisDuration: 1)
         //Chart.legend.enabled = false
         //Chart.chartDescription?.text = description
     }
@@ -125,21 +127,14 @@ class ViewController: UIViewController {
 
         let pieChartDataSet = PieChartDataSet(entries: dataEntries, label: nil)
         
-        //pieChartDataSet.colors = colorsOfCharts(numbersOfColor: dataPoints.count)
-        var  colors: [UIColor] = []
-        colors.append(UIColor.green)
-        colors.append(UIColor.orange)
-        colors.append(UIColor.red)
-        colors.append(UIColor.magenta)
-        //pieChartDataSet.colors = colors
-        pieChartDataSet.colors = colorsOfCharts(numbersOfColor: 4)
-        
+        pieChartDataSet.colors = colorsOfCharts(numbersOfColor: dataPoints.count)
+    
         let pieChartData = PieChartData(dataSet: pieChartDataSet)
         let format = NumberFormatter()
         format.numberStyle = .none
         let formatter = DefaultValueFormatter(formatter: format)
         pieChartData.setValueFormatter(formatter)
-
+        
         pieChart.data = pieChartData
     }
     
