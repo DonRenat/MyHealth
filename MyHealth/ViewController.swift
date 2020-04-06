@@ -65,6 +65,7 @@ class ViewController: UIViewController {
         }
         
         pieChart.isHidden = true
+        pieChart.drawHoleEnabled = false
         //updatePieChart(dataPoints: status, values: statusAmount.map{ Double($0) })
         
         Chart.rightAxis.enabled = false
@@ -86,6 +87,7 @@ class ViewController: UIViewController {
             updatePieChart(dataPoints: status, values: statusAmount.map{ Double($0) })
             Chart.isHidden = true
             pieChart.isHidden = false
+            pieChart.animate(xAxisDuration: 1, yAxisDuration: 2)
         default:
             break
         }
