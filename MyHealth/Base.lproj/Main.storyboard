@@ -14,14 +14,37 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Cmb-dC-zJL">
+                                <rect key="frame" x="20" y="44" width="374" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Температура"/>
+                                    <segment title="Пульс"/>
+                                    <segment title="Ощущение"/>
+                                </segments>
+                                <connections>
+                                    <action selector="indexChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="Uku-dv-h5Q"/>
+                                </connections>
+                            </segmentedControl>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UaK-H0-M60" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="20" y="83" width="374" height="374"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="MyHealth" image="heart.fill" catalog="system" id="h0f-Fe-Iz1"/>
+                    <connections>
+                        <outlet property="Chart" destination="UaK-H0-M60" id="1yA-vi-Cpg"/>
+                        <outlet property="dataSelector" destination="Cmb-dC-zJL" id="pZ5-Lh-bg8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1464" y="852"/>
+            <point key="canvasLocation" x="-1372.4637681159422" y="811.60714285714278"/>
         </scene>
         <!--EXTRA-->
         <scene sceneID="5Ra-1v-EaN">
@@ -37,12 +60,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x93-Qa-bNw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-212" y="852"/>
+            <point key="canvasLocation" x="351" y="46"/>
         </scene>
         <!--Настройки-->
         <scene sceneID="Q94-CZ-Z0e">
             <objects>
-                <viewController id="PaA-Rd-f6B" sceneMemberID="viewController">
+                <viewController id="PaA-Rd-f6B" customClass="ViewControllerSettings" customModule="MyHealth" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vHl-4v-1qz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -53,7 +76,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cy8-5t-sdR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="413" y="852"/>
+            <point key="canvasLocation" x="351" y="-631"/>
         </scene>
         <!--Обращения-->
         <scene sceneID="Ewe-Dv-IdF">
@@ -62,14 +85,14 @@
                     <view key="view" contentMode="scaleToFill" id="k8z-Oq-TXH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="1" green="0.52120530610000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="csj-U8-CNz"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Обращения" image="plus" catalog="system" id="YOl-YK-dRv"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CZA-go-Kp9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-839" y="852"/>
+            <point key="canvasLocation" x="-536" y="812"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="hbG-No-xqh">

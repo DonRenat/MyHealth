@@ -1,24 +1,30 @@
 PODS:
   - Cards (1.4.0):
     - Player (= 0.13.0)
+  - Charts (3.4.0):
+    - Charts/Core (= 3.4.0)
+  - Charts/Core (3.4.0)
   - Comets (0.3.1)
   - Player (0.13.0)
 
 DEPENDENCIES:
   - Cards
+  - Charts
   - Comets
 
 SPEC REPOS:
   trunk:
     - Cards
+    - Charts
     - Comets
     - Player
 
 SPEC CHECKSUMS:
   Cards: 45ae6bd0eca7b5e8016d3b6cb30b60b04753f68f
+  Charts: 74c9f256eaf0460c0c416522d1cf8c634ea6b286
   Comets: ff75eb4658d612af66073bf9fcf6e8bef274817b
   Player: 968d8d07d923bcdd6f7e4091c9e306eb44a5f7a4
 
-PODFILE CHECKSUM: 008448662c2e87eb7b2a3ec4a1b3b515840ed126
+PODFILE CHECKSUM: 06043bb8f9cd05d5b3a73ba43bfabf9478546135
 
 COCOAPODS: 1.8.4

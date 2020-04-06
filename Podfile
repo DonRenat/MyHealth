@@ -8,6 +8,7 @@ target 'MyHealth' do
   # Pods for MyHealth
   pod "Comets"
   pod 'Cards'
+  pod 'Charts'
 
 post_install do |installer|
   installer.pods_project.build_configurations.each do |config|
