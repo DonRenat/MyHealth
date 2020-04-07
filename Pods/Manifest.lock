@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (4.9.1)
   - Cards (1.4.0):
     - Player (= 0.13.0)
   - Charts (3.4.0):
@@ -8,23 +9,26 @@ PODS:
   - Player (0.13.0)
 
 DEPENDENCIES:
+  - Alamofire (~> 4.5)
   - Cards
   - Charts
   - Comets
 
 SPEC REPOS:
   trunk:
+    - Alamofire
     - Cards
     - Charts
     - Comets
     - Player
 
 SPEC CHECKSUMS:
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   Cards: 45ae6bd0eca7b5e8016d3b6cb30b60b04753f68f
   Charts: 74c9f256eaf0460c0c416522d1cf8c634ea6b286
   Comets: ff75eb4658d612af66073bf9fcf6e8bef274817b
   Player: 968d8d07d923bcdd6f7e4091c9e306eb44a5f7a4
 
-PODFILE CHECKSUM: 06043bb8f9cd05d5b3a73ba43bfabf9478546135
+PODFILE CHECKSUM: b0b41ce408f5f325a9da7260d6f0d73d0402341e
 
 COCOAPODS: 1.8.4

@@ -9,6 +9,7 @@ target 'MyHealth' do
   pod "Comets"
   pod 'Cards'
   pod 'Charts'
+  pod 'Alamofire', '~> 4.5'
 
 post_install do |installer|
   installer.pods_project.build_configurations.each do |config|
