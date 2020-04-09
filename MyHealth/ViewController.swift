@@ -9,12 +9,15 @@
 import UIKit
 import Comets
 import Charts
+import LocalAuthentication
+//import AppLocker
 
 class ViewController: UIViewController {
     
     @IBOutlet weak var Chart: LineChartView!
     @IBOutlet weak var pieChart: PieChartView!
     @IBOutlet weak var dataSelector: UISegmentedControl!
+    @IBOutlet weak var loginScreen: UIView!
     
     //future update: take data from server
     var temperature : [Double] = [36.7, 37.0, 38.2, 39.3, 37.0, 36.6]
@@ -24,6 +27,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
         let width = view.bounds.width
         let height = view.bounds.height
         let comets = [Comet(startPoint: CGPoint(x: 100, y: 0),
@@ -69,6 +73,43 @@ class ViewController: UIViewController {
         Chart.xAxis.enabled = false
         updateLineChart(data: temperature)
         Chart.setScaleEnabled(false)
+        
+        loginScreen.isHidden = false
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+         /*var options = ALAppearance()
+           //options.image = UIImage(named: "face")!
+           options.title = "TITLE"
+           options.subtitle = "SUBTITLE"
+           options.isSensorsEnabled = true
+           AppLocker.present(with: .validate, and: options)*/
+            let context = LAContext()
+            var error:NSError?
+
+            guard context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error) else {
+                //showAlertViewIfNoBiometricSensorHasBeenDetected()
+                return
+            }
+
+            if context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error) {
+                context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: "test", reply: { (success, error) in
+                    if success {
+                        DispatchQueue.main.async {
+                            print("Authentication was successful")
+                            self.loginScreen.isHidden = true
+                        }
+                    }else {
+                        DispatchQueue.main.async {
+                            //self.displayErrorMessage(error: error as! LAError )
+                            print("Authentication was error")
+                            //fix here! button?
+                        }
+                    }
+                })
+            }else {
+               // self.showAlertWith(title: "Error", message: (errorPointer?.localizedDescription)!)
+            }
     }
 
     @IBAction func indexChanged(_ sender: Any) {
