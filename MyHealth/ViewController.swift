@@ -73,8 +73,12 @@ class ViewController: UIViewController {
         Chart.xAxis.enabled = false
         updateLineChart(data: temperature)
         Chart.setScaleEnabled(false)
+        //Chart.backgroundColor = UIColor.init(named: "Aquamarine")
         
         loginScreen.isHidden = false
+        
+        dataSelector.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.init(named: "Sonic Silver")!], for: .selected)
+        dataSelector.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.init(named: "Sonic Silver")!], for: .normal)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -103,7 +107,7 @@ class ViewController: UIViewController {
                         DispatchQueue.main.async {
                             //self.displayErrorMessage(error: error as! LAError )
                             print("Authentication was error")
-                            //fix here! button?
+                            //fix here! button? segue?
                         }
                     }
                 })
