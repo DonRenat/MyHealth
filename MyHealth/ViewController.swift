@@ -18,6 +18,7 @@ class ViewController: UIViewController, ChartViewDelegate {
     
     //future update: take data from server
     var temperature : [Double] = [36.7, 37.0, 38.2, 39.3, 37.0, 36.6]
+    //var temperature : [Double] = [] //delete hardcoded data 
     var pulse : [Double] = [66, 80, 73, 55, 59, 90]
     var status = ["Good", "Medium", "Bad", "SOS"]
     var statusAmount = [10, 13, 4, 1]
@@ -116,6 +117,7 @@ class ViewController: UIViewController, ChartViewDelegate {
     }
     
     func updateLineChart(data: [Double]){
+        if (data.count != 0) {
         var lineChartEntry  = [ChartDataEntry]() //this is the Array that will eventually be displayed on the graph.
         
         for i in 0..<data.count {
@@ -145,6 +147,10 @@ class ViewController: UIViewController, ChartViewDelegate {
         Chart.legend.font = UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.light)
         //Chart.legend.enabled = false
         //Chart.chartDescription?.text = description
+        } else {
+            //Chart.data?.removeDataSetByIndex(0)
+            Chart.clear()
+        }
     }
     
     func updatePieChart(dataPoints: [String], values: [Double]) {
