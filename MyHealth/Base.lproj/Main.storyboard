@@ -39,11 +39,6 @@
                                     <action selector="indexChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="Uku-dv-h5Q"/>
                                 </connections>
                             </segmentedControl>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="da8-XT-8dK">
-                                <rect key="frame" x="0.0" y="662" width="414" height="151"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" name="Winter Wizard"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -52,7 +47,6 @@
                     <connections>
                         <outlet property="Chart" destination="UaK-H0-M60" id="1yA-vi-Cpg"/>
                         <outlet property="dataSelector" destination="Cmb-dC-zJL" id="pZ5-Lh-bg8"/>
-                        <outlet property="loginScreen" destination="da8-XT-8dK" id="sRs-P5-lk8"/>
                         <outlet property="pieChart" destination="fVR-DW-0R6" id="PPK-wl-3mY"/>
                     </connections>
                 </viewController>

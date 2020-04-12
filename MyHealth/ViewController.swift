@@ -9,15 +9,12 @@
 import UIKit
 import Comets
 import Charts
-import LocalAuthentication
-//import AppLocker
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, ChartViewDelegate {
     
     @IBOutlet weak var Chart: LineChartView!
     @IBOutlet weak var pieChart: PieChartView!
     @IBOutlet weak var dataSelector: UISegmentedControl!
-    @IBOutlet weak var loginScreen: UIView!
     
     //future update: take data from server
     var temperature : [Double] = [36.7, 37.0, 38.2, 39.3, 37.0, 36.6]
@@ -65,55 +62,31 @@ class ViewController: UIViewController {
             view.layer.addSublayer(comet.animate())
         }
         
+        self.Chart.delegate = self
+        
         pieChart.isHidden = true
         pieChart.drawHoleEnabled = false
+        pieChart.noDataText = "Ошибка получения данных"
         //updatePieChart(dataPoints: status, values: statusAmount.map{ Double($0) })
         
         Chart.rightAxis.enabled = false
         Chart.xAxis.enabled = false
         updateLineChart(data: temperature)
         Chart.setScaleEnabled(false)
+        Chart.noDataText = "Ошибка получения данных"
+        Chart.leftAxis.granularity = 1.0
         //Chart.backgroundColor = UIColor.init(named: "Aquamarine")
-        
-        loginScreen.isHidden = false
         
         dataSelector.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.init(named: "Sonic Silver")!], for: .selected)
         dataSelector.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.init(named: "Sonic Silver")!], for: .normal)
+        
+        let limitT = ChartLimitLine(limit: 37.0)
+        limitT.lineColor = UIColor.init(named: "Sonic Silver")!
+        Chart.leftAxis.addLimitLine(limitT)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-         /*var options = ALAppearance()
-           //options.image = UIImage(named: "face")!
-           options.title = "TITLE"
-           options.subtitle = "SUBTITLE"
-           options.isSensorsEnabled = true
-           AppLocker.present(with: .validate, and: options)*/
-            let context = LAContext()
-            var error:NSError?
-
-            guard context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error) else {
-                //showAlertViewIfNoBiometricSensorHasBeenDetected()
-                return
-            }
-
-            if context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error) {
-                context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: "test", reply: { (success, error) in
-                    if success {
-                        DispatchQueue.main.async {
-                            print("Authentication was successful")
-                            self.loginScreen.isHidden = true
-                        }
-                    }else {
-                        DispatchQueue.main.async {
-                            //self.displayErrorMessage(error: error as! LAError )
-                            print("Authentication was error")
-                            //fix here! button? segue?
-                        }
-                    }
-                })
-            }else {
-               // self.showAlertWith(title: "Error", message: (errorPointer?.localizedDescription)!)
-            }
+    func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
+            print(entry.y) //print this data to textedit and show recomendations
     }
 
     @IBAction func indexChanged(_ sender: Any) {
@@ -121,10 +94,16 @@ class ViewController: UIViewController {
         case 0:
             Chart.isHidden = false
             pieChart.isHidden = true
+            let limitT = ChartLimitLine(limit: 37.0)
+            limitT.lineColor = UIColor.init(named: "Sonic Silver")!
+            Chart.leftAxis.addLimitLine(limitT)
             updateLineChart(data: temperature)
         case 1:
             Chart.isHidden = false
             pieChart.isHidden = true
+            let limitP = ChartLimitLine(limit: 60.0)
+            limitP.lineColor = UIColor.init(named: "Sonic Silver")!
+            Chart.leftAxis.addLimitLine(limitP)
             updateLineChart(data: pulse)
         case 2:
             updatePieChart(dataPoints: status, values: statusAmount.map{ Double($0) })
@@ -140,7 +119,6 @@ class ViewController: UIViewController {
         var lineChartEntry  = [ChartDataEntry]() //this is the Array that will eventually be displayed on the graph.
         
         for i in 0..<data.count {
-
             let value = ChartDataEntry(x: Double(i), y: data[i]) // here we set the X and Y status in a data chart entry
             lineChartEntry.append(value) // here we add it to the data set
         }
@@ -148,16 +126,23 @@ class ViewController: UIViewController {
         let description = dataSelector.titleForSegment(at: dataSelector.selectedSegmentIndex)
         
         let line1 = LineChartDataSet(entries: lineChartEntry, label: description)
-        line1.colors = [NSUIColor.blue]
+        //line1.colors = [NSUIColor.blue]
         line1.drawFilledEnabled = true
-        
+        line1.fillColor = UIColor.init(named: "Aquamarine")!
+        line1.circleRadius = 6
+        line1.drawValuesEnabled = false
+        line1.setColor(UIColor.init(named: "Eton Blue")!)
+        line1.highlightColor = UIColor.init(named: "Sonic Silver")!
+        line1.setCircleColor(UIColor.init(named: "Eton Blue")!)
         line1.mode = .cubicBezier
+        line1.lineWidth = 2
 
         let data = LineChartData() //This is the object that will be added to the chart
         data.addDataSet(line1) //Adds the line to the dataSet
         
         Chart.data = data
         Chart.animate(xAxisDuration: 1)
+        Chart.legend.font = UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.light)
         //Chart.legend.enabled = false
         //Chart.chartDescription?.text = description
     }
