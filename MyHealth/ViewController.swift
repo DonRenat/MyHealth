@@ -18,7 +18,7 @@ class ViewController: UIViewController, ChartViewDelegate {
     
     //future update: take data from server
     var temperature : [Double] = [36.7, 37.0, 38.2, 39.3, 37.0, 36.6]
-    //var temperature : [Double] = [] //delete hardcoded data 
+    //var temperature : [Double] = [] //delete hardcoded data
     var pulse : [Double] = [66, 80, 73, 55, 59, 90]
     var status = ["Good", "Medium", "Bad", "SOS"]
     var statusAmount = [10, 13, 4, 1]
@@ -76,7 +76,6 @@ class ViewController: UIViewController, ChartViewDelegate {
         Chart.setScaleEnabled(false)
         Chart.noDataText = "Ошибка получения данных"
         Chart.leftAxis.granularity = 1.0
-        //Chart.backgroundColor = UIColor.init(named: "Aquamarine")
         
         dataSelector.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.init(named: "Sonic Silver")!], for: .selected)
         dataSelector.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.init(named: "Sonic Silver")!], for: .normal)
@@ -128,7 +127,6 @@ class ViewController: UIViewController, ChartViewDelegate {
         let description = dataSelector.titleForSegment(at: dataSelector.selectedSegmentIndex)
         
         let line1 = LineChartDataSet(entries: lineChartEntry, label: description)
-        //line1.colors = [NSUIColor.blue]
         line1.drawFilledEnabled = true
         line1.fillColor = UIColor.init(named: "Aquamarine")!
         line1.circleRadius = 6
@@ -145,15 +143,13 @@ class ViewController: UIViewController, ChartViewDelegate {
         Chart.data = data
         Chart.animate(xAxisDuration: 1)
         Chart.legend.font = UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.light)
-        //Chart.legend.enabled = false
-        //Chart.chartDescription?.text = description
         } else {
-            //Chart.data?.removeDataSetByIndex(0)
             Chart.clear()
         }
     }
     
     func updatePieChart(dataPoints: [String], values: [Double]) {
+        if (values.count != 0){
         var dataEntries: [ChartDataEntry] = []
         
         for i in 0..<dataPoints.count {
@@ -172,6 +168,9 @@ class ViewController: UIViewController, ChartViewDelegate {
         pieChartData.setValueFormatter(formatter)
         
         pieChart.data = pieChartData
+        } else {
+            pieChart.clear()
+        }
     }
     
     private func colorsOfCharts(numbersOfColor: Int) -> [UIColor] {
