@@ -10,7 +10,7 @@ target 'MyHealth' do
   pod 'Cards'
   pod 'Charts'
   pod 'Alamofire', '~> 4.5'
-  pod 'AppLocker'
+  pod 'SkyFloatingLabelTextField'
 
 post_install do |installer|
   installer.pods_project.build_configurations.each do |config|

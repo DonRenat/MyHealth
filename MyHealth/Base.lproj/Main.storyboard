@@ -70,6 +70,57 @@
             </objects>
             <point key="canvasLocation" x="351" y="46"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="UC1-M4-GSI">
+            <objects>
+                <navigationController navigationBarHidden="YES" id="UTI-17-3PJ" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="67g-Ta-8zS">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="kSd-r1-qxg">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="PaA-Rd-f6B" kind="relationship" relationship="rootViewController" id="Ws8-eE-EVW"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k6R-Dd-wWn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-536" y="-631"/>
+        </scene>
+        <!--Registration View Controller-->
+        <scene sceneID="mJ0-gg-GdM">
+            <objects>
+                <viewController id="Fob-eT-lIu" customClass="RegistrationViewController" customModule="MyHealth" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="otQ-Jv-qwy">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xa2-t5-CTx">
+                                <rect key="frame" x="67" y="741" width="280" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" name="Aquamarine"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Готово">
+                                    <color key="titleColor" name="Sonic Silver"/>
+                                </state>
+                                <connections>
+                                    <action selector="doneButtonClick:" destination="Fob-eT-lIu" eventType="touchUpInside" id="hGI-DU-apt"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" name="Winter Wizard"/>
+                        <viewLayoutGuide key="safeArea" id="uxo-OC-ulY"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="dMs-Fd-I8V"/>
+                    <connections>
+                        <outlet property="doneButton" destination="Xa2-t5-CTx" id="Tvt-FC-8ze"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hQe-I9-9XB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1228.985507246377" y="-631.47321428571422"/>
+        </scene>
         <!--Настройки-->
         <scene sceneID="Q94-CZ-Z0e">
             <objects>
@@ -77,14 +128,33 @@
                     <view key="view" contentMode="scaleToFill" id="vHl-4v-1qz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rfK-M8-Mpx">
+                                <rect key="frame" x="67" y="418" width="280" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" name="Aquamarine"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Регистрация">
+                                    <color key="titleColor" name="Sonic Silver"/>
+                                </state>
+                                <connections>
+                                    <action selector="regButtonClick:" destination="PaA-Rd-f6B" eventType="touchUpInside" id="eG7-GR-9Ud"/>
+                                    <segue destination="Fob-eT-lIu" kind="show" id="jbT-nb-PUk"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" name="Winter Wizard"/>
                         <viewLayoutGuide key="safeArea" id="aVl-Iu-vd4"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Настройки" image="person.fill" catalog="system" id="pYf-1u-jKJ"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="a6T-uw-u99"/>
+                    <connections>
+                        <outlet property="regButton" destination="rfK-M8-Mpx" id="HiJ-tR-Sha"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cy8-5t-sdR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="351" y="-631"/>
+            <point key="canvasLocation" x="350.72463768115944" y="-631.47321428571422"/>
         </scene>
         <!--Обращения-->
         <scene sceneID="Ewe-Dv-IdF">
@@ -143,4 +213,7 @@
             <color red="0.55294117647058827" green="0.89411764705882357" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Ws8-eE-EVW"/>
+    </inferredMetricsTieBreakers>
 </document>

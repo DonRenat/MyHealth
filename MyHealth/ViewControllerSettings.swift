@@ -9,7 +9,9 @@ import UIKit
 import Comets
 
 class ViewControllerSettings: UIViewController {
-
+    
+    @IBOutlet weak var regButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let width = view.bounds.width
@@ -48,6 +50,12 @@ class ViewControllerSettings: UIViewController {
             view.layer.addSublayer(comet.drawLine())
             view.layer.addSublayer(comet.animate())
         }
+        
+        regButton.layer.cornerRadius = 15
+        regButton.layer.cornerCurve = .continuous
     }
 
+    @IBAction func regButtonClick(_ sender: UIButton) {
+        print("click")
+    }
 }

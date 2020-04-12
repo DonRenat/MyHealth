@@ -1,8 +1,7 @@
 ${PODS_ROOT}/Target Support Files/Pods-MyHealth/Pods-MyHealth-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
-${BUILT_PRODUCTS_DIR}/AppLocker/AppLocker.framework
 ${BUILT_PRODUCTS_DIR}/Cards/Cards.framework
 ${BUILT_PRODUCTS_DIR}/Charts/Charts.framework
 ${BUILT_PRODUCTS_DIR}/Comets/Comets.framework
 ${BUILT_PRODUCTS_DIR}/Player/Player.framework
-${BUILT_PRODUCTS_DIR}/Valet/Valet.framework
+${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework

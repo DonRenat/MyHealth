@@ -1,7 +1,5 @@
 PODS:
   - Alamofire (4.9.1)
-  - AppLocker (2.0):
-    - Valet
   - Cards (1.4.0):
     - Player (= 0.13.0)
   - Charts (3.4.0):
@@ -9,34 +7,32 @@ PODS:
   - Charts/Core (3.4.0)
   - Comets (0.3.1)
   - Player (0.13.0)
-  - Valet (3.2.8)
+  - SkyFloatingLabelTextField (3.8.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.5)
-  - AppLocker
   - Cards
   - Charts
   - Comets
+  - SkyFloatingLabelTextField
 
 SPEC REPOS:
   trunk:
     - Alamofire
-    - AppLocker
     - Cards
     - Charts
     - Comets
     - Player
-    - Valet
+    - SkyFloatingLabelTextField
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
-  AppLocker: ad734b8027d26ae5cbb4a70eed2bed30159c3b71
   Cards: 45ae6bd0eca7b5e8016d3b6cb30b60b04753f68f
   Charts: 74c9f256eaf0460c0c416522d1cf8c634ea6b286
   Comets: ff75eb4658d612af66073bf9fcf6e8bef274817b
   Player: 968d8d07d923bcdd6f7e4091c9e306eb44a5f7a4
-  Valet: 16d0537d70db79d9ba953b9060b5da4fb8004e51
+  SkyFloatingLabelTextField: 5a338412114808e961fe2d14ea2c5452c8b6e4aa
 
-PODFILE CHECKSUM: 9728aa7d52dd3866bd8ee586d478a15d5efe65a0
+PODFILE CHECKSUM: d81f1d99246b8308c36099ac83237dfe3ac77942
 
 COCOAPODS: 1.9.1
