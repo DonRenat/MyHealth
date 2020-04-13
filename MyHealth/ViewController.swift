@@ -9,6 +9,7 @@
 import UIKit
 import Comets
 import Charts
+import Alamofire
 
 class ViewController: UIViewController, ChartViewDelegate {
     
@@ -22,6 +23,8 @@ class ViewController: UIViewController, ChartViewDelegate {
     var pulse : [Double] = [66, 80, 73, 55, 59, 90]
     var status = ["Good", "Medium", "Bad", "SOS"]
     var statusAmount = [10, 13, 4, 1]
+    
+    var returnThisArray : [Int] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,7 +75,7 @@ class ViewController: UIViewController, ChartViewDelegate {
         
         Chart.rightAxis.enabled = false
         Chart.xAxis.enabled = false
-        updateLineChart(data: temperature)
+        //updateLineChart(data: temperature)
         Chart.setScaleEnabled(false)
         Chart.noDataText = "Ошибка получения данных"
         Chart.leftAxis.granularity = 1.0
@@ -83,6 +86,12 @@ class ViewController: UIViewController, ChartViewDelegate {
         let limitT = ChartLimitLine(limit: 37.0)
         limitT.lineColor = UIColor.init(named: "Sonic Silver")!
         Chart.leftAxis.addLimitLine(limitT)
+        
+        self.getTempData()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            print(self.returnThisArray)
+            self.updateLineChart(data: self.returnThisArray.map{ Double($0) })
+        }
     }
     
     func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
@@ -97,7 +106,12 @@ class ViewController: UIViewController, ChartViewDelegate {
             let limitT = ChartLimitLine(limit: 37.0)
             limitT.lineColor = UIColor.init(named: "Sonic Silver")!
             Chart.leftAxis.addLimitLine(limitT)
-            updateLineChart(data: temperature)
+            //updateLineChart(data: temperature)
+            getTempData()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                print(self.returnThisArray)
+                self.updateLineChart(data: self.returnThisArray.map{ Double($0) })
+            }
         case 1:
             Chart.isHidden = false
             pieChart.isHidden = true
@@ -184,5 +198,29 @@ class ViewController: UIViewController, ChartViewDelegate {
       }
       return colors
     }
+    
+    func getTempData(){
+        returnThisArray.removeAll()
+        Alamofire.request("https://fakemyapi.com/api/fake?id=b97f7e56-86f4-4dd4-b596-a15ce4b91e09", method: .post, encoding: JSONEncoding.default)
+                    .responseJSON { response in
+                        /*if let status = response.response?.statusCode {
+                            switch(status){
+                            case 200:
+                                print("example success")
+                            default:
+                                print("error with response status: \(status)")
+                            }
+                        }*/
+                        if let result = response.result.value {
+                        let JSON = result as! NSDictionary
+                        guard let temps = JSON["temperature"] as? [[String: Any]] else {return}
+                        for obj in temps {
+                            //print(obj["temp"]!)
+                            //self.returnThisArray.append(obj["temp"]! as! Int)
+                            self.returnThisArray.append((obj["temp"]! as! Int)%42) //kolhoz
+                        }
+                    }
+                }
+        }
 }
 
