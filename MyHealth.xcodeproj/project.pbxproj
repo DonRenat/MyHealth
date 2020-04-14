@@ -15,6 +15,7 @@
 		1B55E1A023600185005431D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B55E19F23600185005431D0 /* Assets.xcassets */; };
 		1B55E1A323600185005431D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B55E1A123600185005431D0 /* LaunchScreen.storyboard */; };
 		1B77859F243B8FE200F35802 /* ViewControllerSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B77859E243B8FE200F35802 /* ViewControllerSettings.swift */; };
+		1BAA0F8324459A9500C91702 /* TYHeightPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAA0F8224459A9400C91702 /* TYHeightPicker.swift */; };
 		EF401E3987128C4265D662F8 /* Pods_MyHealth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 615B721564DAD2BCFA31D967 /* Pods_MyHealth.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +30,7 @@
 		1B55E1A223600185005431D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1B55E1A423600185005431D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1B77859E243B8FE200F35802 /* ViewControllerSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewControllerSettings.swift; path = /Users/renatgasanov/Desktop/MyHealth/MyHealth/ViewControllerSettings.swift; sourceTree = "<absolute>"; };
+		1BAA0F8224459A9400C91702 /* TYHeightPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TYHeightPicker.swift; sourceTree = "<group>"; };
 		6146AEFF9BF08955A20B88C8 /* Pods-MyHealth.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyHealth.debug.xcconfig"; path = "Target Support Files/Pods-MyHealth/Pods-MyHealth.debug.xcconfig"; sourceTree = "<group>"; };
 		615B721564DAD2BCFA31D967 /* Pods_MyHealth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyHealth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D17CEB5BCA25DC00708BAC8D /* Pods-MyHealth.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyHealth.release.xcconfig"; path = "Target Support Files/Pods-MyHealth/Pods-MyHealth.release.xcconfig"; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 		1B55E19523600181005431D0 /* MyHealth */ = {
 			isa = PBXGroup;
 			children = (
+				1BAA0F8224459A9400C91702 /* TYHeightPicker.swift */,
 				1B77859E243B8FE200F35802 /* ViewControllerSettings.swift */,
 				1B55E19623600181005431D0 /* AppDelegate.swift */,
 				1B55E19823600181005431D0 /* SceneDelegate.swift */,
@@ -217,6 +220,7 @@
 				1B55E19923600181005431D0 /* SceneDelegate.swift in Sources */,
 				1B77859F243B8FE200F35802 /* ViewControllerSettings.swift in Sources */,
 				1B3CF1122443CD710024616E /* RegistrationViewController.swift in Sources */,
+				1BAA0F8324459A9500C91702 /* TYHeightPicker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

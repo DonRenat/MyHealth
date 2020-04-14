@@ -13,12 +13,13 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var nameTextField: SkyFloatingLabelTextField!
     @IBOutlet weak var famTextField: SkyFloatingLabelTextField!
+    @IBOutlet weak var birthdayTextField: SkyFloatingLabelTextField!
+    @IBOutlet weak var weightTextField: SkyFloatingLabelTextField!
     @IBOutlet weak var snTextField: SkyFloatingLabelTextField!
     @IBOutlet weak var doneButton: UIButton!
     
-    let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-    let done: UIBarButtonItem = UIBarButtonItem(title: "Готово", style: .plain, target: self, action: #selector(textFieldShouldReturn(_:)))
-    let accessoryToolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 44))
+    private var datePicker: UIDatePicker?
+    var heighPicker: TYHeightPicker!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,11 +30,32 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
         doneButton.layer.cornerRadius = 15
         doneButton.layer.cornerCurve = .continuous
         
-        done.tintColor = .white
-        let items = [flexSpace, done]
-        accessoryToolBar.items = items
-        accessoryToolBar.sizeToFit()
-        self.snTextField.inputAccessoryView = self.accessoryToolBar
+        datePicker = UIDatePicker()
+        datePicker?.datePickerMode = .date
+        datePicker?.addTarget(self, action: #selector(RegistrationViewController.dateChanged(datePicker:)), for: .valueChanged)
+        birthdayTextField.inputView = datePicker
+        
+        datePicker?.minimumDate = Calendar.current.date(byAdding: .year, value: -110, to: Date())
+        datePicker?.maximumDate = Calendar.current.date(byAdding: .year, value: 0, to: Date())
+        datePicker?.locale = Locale(identifier: "ru_RU")
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped(gestureRecognizer:)))
+        view.addGestureRecognizer(tapGesture)
+        
+        setupTYHeightPicker()
+    }
+    
+    @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer){
+        view.endEditing(true)
+    }
+    
+    @objc func dateChanged(datePicker: UIDatePicker){
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "ru_RU")
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        
+        birthdayTextField.text = dateFormatter.string(from: datePicker.date)
+        //view.endEditing(true)
     }
     
     @IBAction func doneButtonClick(_ sender: UIButton) {
@@ -44,4 +66,26 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
         self.view.endEditing(true)
         return false
     }
+    
+    func setupTYHeightPicker() {
+        heighPicker = TYHeightPicker()
+        heighPicker.translatesAutoresizingMaskIntoConstraints = false
+        heighPicker.delegate = self
+        self.view.addSubview(heighPicker)
+        
+        heighPicker.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
+        heighPicker.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
+        //heighPicker.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
+        heighPicker.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: -140).isActive = true
+        heighPicker.heightAnchor.constraint(equalToConstant: 145).isActive = true
+        
+        heighPicker.setDefaultHeight(70, unit: .CM)
+    }
 }
+
+extension RegistrationViewController: TYHeightPickerDelegate {
+    func selectedHeight(height: CGFloat, unit: HeightUnit) {
+            weightTextField.text = "\(Int(height))"
+    }
+}
+
