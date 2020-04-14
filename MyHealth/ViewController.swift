@@ -217,7 +217,7 @@ class ViewController: UIViewController, ChartViewDelegate {
                         for obj in temps {
                             //print(obj["temp"]!)
                             //self.returnThisArray.append(obj["temp"]! as! Int)
-                            self.returnThisArray.append((obj["temp"]! as! Int)%42) //kolhoz
+                            self.returnThisArray.append((obj["temp"]! as! Int)%6+36) //kolhoz
                         }
                     }
                 }

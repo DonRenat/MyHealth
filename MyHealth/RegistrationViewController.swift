@@ -43,6 +43,8 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
         view.addGestureRecognizer(tapGesture)
         
         setupTYHeightPicker()
+        let tapGesture2 = UITapGestureRecognizer(target: self, action: #selector(viewTapped(gestureRecognizer:)))
+        heighPicker.addGestureRecognizer(tapGesture2)
     }
     
     @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer){
@@ -58,8 +60,23 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
         //view.endEditing(true)
     }
     
+    func saveData(){
+        UserDefaults.standard.set(nameTextField.text, forKey: "NameKey")
+        UserDefaults.standard.synchronize()
+    }
+    
     @IBAction func doneButtonClick(_ sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
+        if (!nameTextField.text!.isEmpty && !famTextField.text!.isEmpty && !birthdayTextField.text!.isEmpty && !weightTextField.text!.isEmpty && !snTextField.text!.isEmpty){
+            saveData()
+            
+            if let parent = self.presentingViewController {
+                parent.viewWillAppear(true)
+            }
+            
+            self.dismiss(animated: true, completion: nil)
+        } else {
+            //handle empty text fields
+        }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

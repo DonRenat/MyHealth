@@ -382,6 +382,13 @@
                                     <segue destination="Fob-eT-lIu" kind="show" id="jbT-nb-PUk"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7pm-GL-HAe">
+                                <rect key="frame" x="186" y="335" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" name="Winter Wizard"/>
                         <viewLayoutGuide key="safeArea" id="aVl-Iu-vd4"/>
@@ -390,6 +397,7 @@
                     <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="a6T-uw-u99"/>
                     <connections>
                         <outlet property="regButton" destination="rfK-M8-Mpx" id="HiJ-tR-Sha"/>
+                        <outlet property="testLabel" destination="7pm-GL-HAe" id="pd6-Vt-cUe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cy8-5t-sdR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

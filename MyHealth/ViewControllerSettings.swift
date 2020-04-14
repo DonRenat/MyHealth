@@ -11,6 +11,7 @@ import Comets
 class ViewControllerSettings: UIViewController {
     
     @IBOutlet weak var regButton: UIButton!
+    @IBOutlet weak var testLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,9 +54,21 @@ class ViewControllerSettings: UIViewController {
         
         regButton.layer.cornerRadius = 15
         regButton.layer.cornerCurve = .continuous
+        
+        //loadData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        loadData()
     }
 
     @IBAction func regButtonClick(_ sender: UIButton) {
         print("click")
+    }
+    
+    func loadData(){
+        if let name = UserDefaults.standard.string(forKey: "NameKey") {
+            testLabel.text = name
+        }
     }
 }
