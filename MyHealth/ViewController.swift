@@ -10,12 +10,15 @@ import UIKit
 import Comets
 import Charts
 import Alamofire
+import SkyFloatingLabelTextField
+import FontAwesome_swift
 
 class ViewController: UIViewController, ChartViewDelegate {
     
     @IBOutlet weak var Chart: LineChartView!
     @IBOutlet weak var pieChart: PieChartView!
     @IBOutlet weak var dataSelector: UISegmentedControl!
+    @IBOutlet weak var selectedPointLabel: SkyFloatingLabelTextFieldWithIcon!
     
     //future update: take data from server
     var temperature : [Double] = [36.7, 37.0, 38.2, 39.3, 37.0, 36.6]
@@ -92,38 +95,54 @@ class ViewController: UIViewController, ChartViewDelegate {
             print(self.returnThisArray)
             self.updateLineChart(data: self.returnThisArray.map{ Double($0) })
         }
+        
+        //selectedPointLabel.isHidden = true
+        selectedPointLabel.iconFont = UIFont.fontAwesome(ofSize: 10, style: .solid)
+        //selectedPointLabel.iconText = String.fontAwesomeIcon(name: .heartbeat)
+        selectedPointLabel.placeholder = ""
     }
     
     func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
-            print(entry.y) //print this data to textedit and show recomendations
+            //print(entry.y) //print this data to textedit and show recomendations
+        selectedPointLabel.text = String(entry.y)
     }
 
     @IBAction func indexChanged(_ sender: Any) {
         switch dataSelector.selectedSegmentIndex{
         case 0:
+            selectedPointLabel.isHidden = false
+            selectedPointLabel.iconText = String.fontAwesomeIcon(name: .thermometer)
+            selectedPointLabel.text = ""
             Chart.isHidden = false
             pieChart.isHidden = true
             let limitT = ChartLimitLine(limit: 37.0)
             limitT.lineColor = UIColor.init(named: "Sonic Silver")!
             Chart.leftAxis.addLimitLine(limitT)
             //updateLineChart(data: temperature)
+            selectedPointLabel.title = dataSelector.titleForSegment(at: dataSelector.selectedSegmentIndex)
             getTempData()
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                 print(self.returnThisArray)
                 self.updateLineChart(data: self.returnThisArray.map{ Double($0) })
             }
         case 1:
+            selectedPointLabel.iconText = String.fontAwesomeIcon(name: .heartbeat)
+            selectedPointLabel.isHidden = false
+            selectedPointLabel.text = ""
             Chart.isHidden = false
             pieChart.isHidden = true
             let limitP = ChartLimitLine(limit: 60.0)
             limitP.lineColor = UIColor.init(named: "Sonic Silver")!
             Chart.leftAxis.addLimitLine(limitP)
             updateLineChart(data: pulse)
+            selectedPointLabel.title = dataSelector.titleForSegment(at: dataSelector.selectedSegmentIndex)
         case 2:
+            selectedPointLabel.isHidden = true
             updatePieChart(dataPoints: status, values: statusAmount.map{ Double($0) })
             Chart.isHidden = true
             pieChart.isHidden = false
             pieChart.animate(xAxisDuration: 1, yAxisDuration: 2)
+            selectedPointLabel.title = dataSelector.titleForSegment(at: dataSelector.selectedSegmentIndex)
         default:
             break
         }

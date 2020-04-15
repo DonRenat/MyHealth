@@ -32,13 +32,30 @@
                                 <segments>
                                     <segment title="Температура"/>
                                     <segment title="Пульс"/>
-                                    <segment title="Ощущение"/>
+                                    <segment title="Самочувствие"/>
                                 </segments>
                                 <color key="selectedSegmentTintColor" name="Eton Blue"/>
                                 <connections>
                                     <action selector="indexChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="Uku-dv-h5Q"/>
                                 </connections>
                             </segmentedControl>
+                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="okC-hO-jek" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="SkyFloatingLabelTextField">
+                                <rect key="frame" x="20" y="465" width="374" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                        <color key="value" name="Sonic Silver"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                        <color key="value" name="Sonic Silver"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
+                                        <color key="value" name="Sonic Silver"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" name="Winter Wizard"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -48,6 +65,7 @@
                         <outlet property="Chart" destination="UaK-H0-M60" id="1yA-vi-Cpg"/>
                         <outlet property="dataSelector" destination="Cmb-dC-zJL" id="pZ5-Lh-bg8"/>
                         <outlet property="pieChart" destination="fVR-DW-0R6" id="PPK-wl-3mY"/>
+                        <outlet property="selectedPointLabel" destination="okC-hO-jek" id="eaP-Qn-0aE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
