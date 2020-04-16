@@ -11,7 +11,8 @@ target 'MyHealth' do
   pod 'Charts'
   pod 'Alamofire', '~> 4.5'
   pod 'SkyFloatingLabelTextField'
-  pod 'FontAwesome.swift'
+  pod 'FontAwesome.swift', '~> 1.9.0'
+  pod "LetterAvatarKit"
 
 post_install do |installer|
   installer.pods_project.build_configurations.each do |config|

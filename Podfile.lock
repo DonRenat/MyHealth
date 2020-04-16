@@ -7,6 +7,7 @@ PODS:
   - Charts/Core (3.4.0)
   - Comets (0.3.1)
   - FontAwesome.swift (1.9.0)
+  - LetterAvatarKit (1.2.2)
   - Player (0.13.0)
   - SkyFloatingLabelTextField (3.8.0)
 
@@ -15,7 +16,8 @@ DEPENDENCIES:
   - Cards
   - Charts
   - Comets
-  - FontAwesome.swift
+  - FontAwesome.swift (~> 1.9.0)
+  - LetterAvatarKit
   - SkyFloatingLabelTextField
 
 SPEC REPOS:
@@ -25,6 +27,7 @@ SPEC REPOS:
     - Charts
     - Comets
     - FontAwesome.swift
+    - LetterAvatarKit
     - Player
     - SkyFloatingLabelTextField
 
@@ -34,9 +37,10 @@ SPEC CHECKSUMS:
   Charts: 74c9f256eaf0460c0c416522d1cf8c634ea6b286
   Comets: ff75eb4658d612af66073bf9fcf6e8bef274817b
   FontAwesome.swift: a403b88cec950511745ba8f2decd1b6a07346d13
+  LetterAvatarKit: ad0fd9a9fe7c3721059cad56ed79fffc52e6a2fb
   Player: 968d8d07d923bcdd6f7e4091c9e306eb44a5f7a4
   SkyFloatingLabelTextField: 5a338412114808e961fe2d14ea2c5452c8b6e4aa
 
-PODFILE CHECKSUM: 3ad3c50ea5d30f34fda8536f75bdb07e1cc6a590
+PODFILE CHECKSUM: 5a77cf85f56873de9c671f305db4abe1c3a241db
 
 COCOAPODS: 1.9.1

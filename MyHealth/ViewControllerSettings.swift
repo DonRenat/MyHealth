@@ -7,11 +7,13 @@
 
 import UIKit
 import Comets
+import LetterAvatarKit
 
 class ViewControllerSettings: UIViewController {
     
     @IBOutlet weak var regButton: UIButton!
     @IBOutlet weak var testLabel: UILabel!
+    @IBOutlet weak var avatarImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,7 +57,12 @@ class ViewControllerSettings: UIViewController {
         regButton.layer.cornerRadius = 15
         regButton.layer.cornerCurve = .continuous
         
-        //loadData()
+        let avatarImage = LetterAvatarMaker()
+            .setUsername("Letter Avatar")
+            .setBackgroundColors([UIColor.init(named: "Aquamarine")!])
+        .setLettersColor(UIColor.init(named: "Sonic Silver")!)
+            .build()
+        avatarImageView.image = avatarImage
     }
     
     override func viewWillAppear(_ animated: Bool) {
