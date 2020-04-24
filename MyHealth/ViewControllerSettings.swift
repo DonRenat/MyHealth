@@ -15,6 +15,21 @@ class ViewControllerSettings: UIViewController {
     @IBOutlet weak var testLabel: UILabel!
     @IBOutlet weak var avatarImageView: UIImageView!
     
+    var isReg: Bool{
+        set{
+            UserDefaults.standard.set(newValue, forKey: "isReg")
+            UserDefaults.standard.synchronize()
+        }
+        
+        get{
+            if let a = UserDefaults.standard.bool(forKey: "isReg") as? Bool {
+                return a
+            } else {
+                return false
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let width = view.bounds.width
@@ -63,10 +78,39 @@ class ViewControllerSettings: UIViewController {
         .setLettersColor(UIColor.init(named: "Sonic Silver")!)
             .build()
         avatarImageView.image = avatarImage
+        
+        /*if isReg == false {
+            avatarImageView.isHidden = true
+            testLabel.isHidden = true
+        } else {
+            avatarImageView.isHidden = false
+            testLabel.isHidden = false
+            regButton.isHidden = true
+        }*/
     }
     
     override func viewWillAppear(_ animated: Bool) {
         loadData()
+        regCheck()
+        /*if isReg == false {
+            avatarImageView.isHidden = true
+            testLabel.isHidden = true
+        } else {
+            avatarImageView.isHidden = false
+            testLabel.isHidden = false
+            regButton.isHidden = true
+        }*/
+    }
+    
+    func regCheck() {
+            if isReg == false {
+                avatarImageView.isHidden = true
+                testLabel.isHidden = true
+            } else {
+                avatarImageView.isHidden = false
+                testLabel.isHidden = false
+                regButton.isHidden = true
+            }
     }
 
     @IBAction func regButtonClick(_ sender: UIButton) {

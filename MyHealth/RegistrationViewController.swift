@@ -8,6 +8,7 @@
 
 import UIKit
 import SkyFloatingLabelTextField
+import Alamofire
 
 class RegistrationViewController: UIViewController, UITextFieldDelegate {
 
@@ -17,6 +18,7 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var weightTextField: SkyFloatingLabelTextField!
     @IBOutlet weak var snTextField: SkyFloatingLabelTextField!
     @IBOutlet weak var doneButton: UIButton!
+    @IBOutlet weak var passTextField: SkyFloatingLabelTextField!
     
     private var datePicker: UIDatePicker?
     var heighPicker: TYHeightPicker!
@@ -26,6 +28,7 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
         
         nameTextField.delegate = self
         famTextField.delegate = self
+        passTextField.delegate = self
         
         doneButton.layer.cornerRadius = 15
         doneButton.layer.cornerCurve = .continuous
@@ -66,14 +69,42 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func doneButtonClick(_ sender: UIButton) {
-        if (!nameTextField.text!.isEmpty && !famTextField.text!.isEmpty && !birthdayTextField.text!.isEmpty && !weightTextField.text!.isEmpty && !snTextField.text!.isEmpty){
+        if (!nameTextField.text!.isEmpty && !famTextField.text!.isEmpty && !birthdayTextField.text!.isEmpty && !weightTextField.text!.isEmpty && !snTextField.text!.isEmpty && !passTextField.text!.isEmpty){
             saveData()
             
             if let parent = self.presentingViewController {
                 parent.viewWillAppear(true)
             }
             
-            self.dismiss(animated: true, completion: nil)
+            let activityIndicator = UIActivityIndicatorView(style: .whiteLarge)
+            activityIndicator.color = .red
+            self.view.addSubview(activityIndicator)
+            activityIndicator.frame = self.view.bounds
+            activityIndicator.startAnimating()
+            
+            let parameters: Parameters = ["firstname" : nameTextField.text!, "lastname" : famTextField.text!, "age" : birthdayTextField.text!, "serial" : snTextField.text!, "weight" : weightTextField.text!, "password" : passTextField.text!]
+            
+            Alamofire.request("http://donrenat.ddns.net:8888/reg", method: .post, parameters: parameters, encoding: JSONEncoding.default)
+            .responseString { response in
+                
+            activityIndicator.removeFromSuperview()
+            var myCustomViewController: ViewControllerSettings = ViewControllerSettings()
+            myCustomViewController.isReg = true
+            //let presentedBy = self.presentingViewController as? ViewControllerSettings
+            //presentedBy?.regCheck()
+            //myCustomViewController.viewDidLoad()
+            //_ = self.navigationController?.popViewController(animated: true)
+                
+            let viewController = self.storyboard?.instantiateViewController(withIdentifier: "tabbar") as! UITabBarController
+            viewController.modalPresentationStyle = .fullScreen
+            viewController.selectedIndex = 3
+            self.present(viewController, animated: true, completion: nil)
+            
+                
+            //self.dismiss(animated: true, completion: nil)
+            }
+            
+            //self.dismiss(animated: true, completion: nil)
         } else {
             //handle empty text fields
         }

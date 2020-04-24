@@ -88,30 +88,12 @@
             </objects>
             <point key="canvasLocation" x="351" y="46"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="UC1-M4-GSI">
-            <objects>
-                <navigationController navigationBarHidden="YES" id="UTI-17-3PJ" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="67g-Ta-8zS">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="kSd-r1-qxg">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </toolbar>
-                    <connections>
-                        <segue destination="PaA-Rd-f6B" kind="relationship" relationship="rootViewController" id="Ws8-eE-EVW"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="k6R-Dd-wWn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-536" y="-631"/>
-        </scene>
         <!--Registration View Controller-->
         <scene sceneID="mJ0-gg-GdM">
             <objects>
                 <viewController id="Fob-eT-lIu" customClass="RegistrationViewController" customModule="MyHealth" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="otQ-Jv-qwy">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xa2-t5-CTx">
@@ -361,6 +343,53 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" id="GLX-yG-2AA" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                <rect key="frame" x="20" y="399" width="374" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" name="Sonic Silver"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="numberPad" returnKeyType="continue" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="one-time-code"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                        <color key="value" name="Sonic Silver"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
+                                        <color key="value" name="Sonic Silver"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedTitleColor">
+                                        <color key="value" name="Sonic Silver"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                        <color key="value" name="Sonic Silver"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="lineErrorColor">
+                                        <color key="value" red="1" green="0.52120530610000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="textErrorColor">
+                                        <color key="value" red="1" green="0.52120530610000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="titleErrorColor">
+                                        <color key="value" red="1" green="0.52120530610000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="errorColor">
+                                        <color key="value" red="1" green="0.52120530610000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
+                                        <color key="value" name="Sonic Silver"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                        <color key="value" name="Sonic Silver"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Пароль"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Придумайте пароль"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="lineHeight">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="selectedLineHeight">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" name="Winter Wizard"/>
                         <viewLayoutGuide key="safeArea" id="uxo-OC-ulY"/>
@@ -371,6 +400,7 @@
                         <outlet property="doneButton" destination="Xa2-t5-CTx" id="Tvt-FC-8ze"/>
                         <outlet property="famTextField" destination="nKC-hg-yYZ" id="4r2-Yx-HAh"/>
                         <outlet property="nameTextField" destination="GUS-3R-Kp6" id="iwA-Nk-FQy"/>
+                        <outlet property="passTextField" destination="GLX-yG-2AA" id="w7X-2X-tKG"/>
                         <outlet property="snTextField" destination="ItP-rH-xl8" id="Bx4-gA-NXq"/>
                         <outlet property="weightTextField" destination="TGc-FO-bMw" id="t84-pc-DRQ"/>
                     </connections>
@@ -382,7 +412,7 @@
         <!--Настройки-->
         <scene sceneID="Q94-CZ-Z0e">
             <objects>
-                <viewController id="PaA-Rd-f6B" customClass="ViewControllerSettings" customModule="MyHealth" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="settings" id="PaA-Rd-f6B" customClass="ViewControllerSettings" customModule="MyHealth" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vHl-4v-1qz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -446,7 +476,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="hbG-No-xqh">
             <objects>
-                <tabBarController id="iHJ-qk-VCc" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabbar" id="iHJ-qk-VCc" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Hjg-cB-QGf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -484,7 +514,4 @@
             <color red="0.55294117647058827" green="0.89411764705882357" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="Ws8-eE-EVW"/>
-    </inferredMetricsTieBreakers>
 </document>
