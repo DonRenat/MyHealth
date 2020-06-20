@@ -13,6 +13,7 @@ target 'MyHealth' do
   pod 'SkyFloatingLabelTextField'
   pod 'FontAwesome.swift', '~> 1.9.0'
   pod "LetterAvatarKit"
+  pod 'Socket.IO-Client-Swift'
 
 post_install do |installer|
   installer.pods_project.build_configurations.each do |config|

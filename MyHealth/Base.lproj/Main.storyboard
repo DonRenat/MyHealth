@@ -460,18 +460,47 @@
         <!--Обращения-->
         <scene sceneID="Ewe-Dv-IdF">
             <objects>
-                <viewController id="J5O-pe-FF2" sceneMemberID="viewController">
+                <viewController id="J5O-pe-FF2" customClass="ChatVC" customModule="MyHealth" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="k8z-Oq-TXH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3XU-DN-XuR">
+                                <rect key="frame" x="159" y="260" width="97" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="vGV-bZ-Ruh">
+                                <rect key="frame" x="87" y="44" width="240" height="208"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mMf-ap-8Tv">
+                                <rect key="frame" x="184" y="302" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="send:" destination="J5O-pe-FF2" eventType="touchUpInside" id="yT0-se-qgW"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" name="Winter Wizard"/>
                         <viewLayoutGuide key="safeArea" id="csj-U8-CNz"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Обращения" image="plus" catalog="system" id="YOl-YK-dRv"/>
+                    <connections>
+                        <outlet property="chatView" destination="vGV-bZ-Ruh" id="UaI-xr-ej1"/>
+                        <outlet property="sendButton" destination="mMf-ap-8Tv" id="RWu-yT-Gfn"/>
+                        <outlet property="sendField" destination="3XU-DN-XuR" id="8m1-oD-m5E"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CZA-go-Kp9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-536" y="812"/>
+            <point key="canvasLocation" x="-536.231884057971" y="811.60714285714278"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="hbG-No-xqh">

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B13CD52249E77FE00F718E1 /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B13CD51249E77FE00F718E1 /* ChatVC.swift */; };
 		1B3CF1122443CD710024616E /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3CF1112443CD710024616E /* RegistrationViewController.swift */; };
 		1B55E19723600181005431D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B55E19623600181005431D0 /* AppDelegate.swift */; };
 		1B55E19923600181005431D0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B55E19823600181005431D0 /* SceneDelegate.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B13CD51249E77FE00F718E1 /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
 		1B3CF1112443CD710024616E /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		1B55E19323600181005431D0 /* MyHealth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyHealth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B55E19623600181005431D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 				1B55E1A123600185005431D0 /* LaunchScreen.storyboard */,
 				1B55E1A423600185005431D0 /* Info.plist */,
 				1B3CF1112443CD710024616E /* RegistrationViewController.swift */,
+				1B13CD51249E77FE00F718E1 /* ChatVC.swift */,
 			);
 			path = MyHealth;
 			sourceTree = "<group>";
@@ -216,6 +219,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B55E19B23600181005431D0 /* ViewController.swift in Sources */,
+				1B13CD52249E77FE00F718E1 /* ChatVC.swift in Sources */,
 				1B55E19723600181005431D0 /* AppDelegate.swift in Sources */,
 				1B55E19923600181005431D0 /* SceneDelegate.swift in Sources */,
 				1B77859F243B8FE200F35802 /* ViewControllerSettings.swift in Sources */,

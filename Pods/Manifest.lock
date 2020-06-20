@@ -10,6 +10,9 @@ PODS:
   - LetterAvatarKit (1.2.2)
   - Player (0.13.0)
   - SkyFloatingLabelTextField (3.8.0)
+  - Socket.IO-Client-Swift (15.2.0):
+    - Starscream (~> 3.1)
+  - Starscream (3.1.1)
 
 DEPENDENCIES:
   - Alamofire (~> 4.5)
@@ -19,6 +22,7 @@ DEPENDENCIES:
   - FontAwesome.swift (~> 1.9.0)
   - LetterAvatarKit
   - SkyFloatingLabelTextField
+  - Socket.IO-Client-Swift
 
 SPEC REPOS:
   trunk:
@@ -30,6 +34,8 @@ SPEC REPOS:
     - LetterAvatarKit
     - Player
     - SkyFloatingLabelTextField
+    - Socket.IO-Client-Swift
+    - Starscream
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
@@ -40,7 +46,9 @@ SPEC CHECKSUMS:
   LetterAvatarKit: ad0fd9a9fe7c3721059cad56ed79fffc52e6a2fb
   Player: 968d8d07d923bcdd6f7e4091c9e306eb44a5f7a4
   SkyFloatingLabelTextField: 5a338412114808e961fe2d14ea2c5452c8b6e4aa
+  Socket.IO-Client-Swift: 1e3e3a1f09f3312a167f0d781eb2f383d477357c
+  Starscream: 4bb2f9942274833f7b4d296a55504dcfc7edb7b0
 
-PODFILE CHECKSUM: 5a77cf85f56873de9c671f305db4abe1c3a241db
+PODFILE CHECKSUM: 72e4c7de6c6239a4bd7f92a906aa8eaf8d6b174d
 
 COCOAPODS: 1.9.1
