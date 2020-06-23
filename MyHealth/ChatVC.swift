@@ -9,8 +9,10 @@
 import UIKit
 import SocketIO
 
-let manager = SocketManager(socketURL: URL(string: "http://192.168.0.15:3000")!, config: [.log(true), .compress])
+let manager = SocketManager(socketURL: URL(string: "http://donrenat.ddns.net:4444")!, config: [.log(true), .compress])
 let socket = manager.defaultSocket
+
+let name = UserDefaults.standard.string(forKey: "NameKey")
 
 class ChatVC: UIViewController {
     
@@ -26,12 +28,14 @@ class ChatVC: UIViewController {
     }
     
     @IBAction func send(_ sender: Any) {
-        socket.emit("chat message", [self.sendField.text!])
-        self.chatView.text?.append(self.sendField.text! + "\n")
+        socket.emit("chat message", [name! + ":" + self.sendField.text!])
+        //socket.emit("chat message", [name!, self.sendField.text!])
+        self.chatView.text?.append(name! + ":" + self.sendField.text! + "\n")
         self.sendField.text = ""
     }
     
     func addHandlers() {
+        
         socket.on(clientEvent: .connect) {data, ack in
             print("socket connected")
         }

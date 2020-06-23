@@ -84,7 +84,7 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
             
             let parameters: Parameters = ["firstname" : nameTextField.text!, "lastname" : famTextField.text!, "age" : birthdayTextField.text!, "serial" : snTextField.text!, "weight" : weightTextField.text!, "password" : passTextField.text!]
             
-            Alamofire.request("http://donrenat.ddns.net:8888/reg", method: .post, parameters: parameters, encoding: JSONEncoding.default)
+            Alamofire.request("http://donrenat.ddns.net:4444/reguser", method: .post, parameters: parameters, encoding: JSONEncoding.default)
             .responseString { response in
                 
             activityIndicator.removeFromSuperview()
