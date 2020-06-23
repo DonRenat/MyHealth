@@ -65,6 +65,11 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
     
     func saveData(){
         UserDefaults.standard.set(nameTextField.text, forKey: "NameKey")
+        UserDefaults.standard.set(famTextField.text, forKey: "FamKey")
+        UserDefaults.standard.set(birthdayTextField.text, forKey: "BirthKey")
+        UserDefaults.standard.set(weightTextField.text, forKey: "WeightKey")
+        UserDefaults.standard.set(snTextField.text, forKey: "SNKey")
+        UserDefaults.standard.set(passTextField.text, forKey: "PassKey")
         UserDefaults.standard.synchronize()
     }
     

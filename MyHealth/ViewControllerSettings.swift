@@ -72,8 +72,9 @@ class ViewControllerSettings: UIViewController {
         regButton.layer.cornerRadius = 15
         regButton.layer.cornerCurve = .continuous
         
+        let namefinal = name! + " " + fam!
         let avatarImage = LetterAvatarMaker()
-            .setUsername("Letter Avatar")
+            .setUsername(namefinal)
             .setBackgroundColors([UIColor.init(named: "Aquamarine")!])
         .setLettersColor(UIColor.init(named: "Sonic Silver")!)
             .build()
@@ -120,6 +121,18 @@ class ViewControllerSettings: UIViewController {
     func loadData(){
         if let name = UserDefaults.standard.string(forKey: "NameKey") {
             testLabel.text = name
+        }
+        if let fam = UserDefaults.standard.string(forKey: "FamKey"){
+            testLabel.text?.append(" " + fam)
+        }
+        if let birth = UserDefaults.standard.string(forKey: "BirthKey"){
+            testLabel.text?.append(" " + birth)
+        }
+        if let weight = UserDefaults.standard.string(forKey: "WeightKey"){
+            testLabel.text?.append(" " + weight)
+        }
+        if let SN = UserDefaults.standard.string(forKey: "SNKey"){
+            testLabel.text?.append(" " + SN)
         }
     }
 }
