@@ -34,7 +34,9 @@ class ChatVC: UIViewController {
     }
     
     @IBAction func send(_ sender: Any) {
-        socket.emit("chat message", [name! + ": " + self.sendField.text!])
+        let text = name! + ":" + SN! + ":" + self.sendField.text!
+        print(text)
+        socket.emit("chat message", text)
         //socket.emit("chat message", [name!, self.sendField.text!])
         self.chatView.text?.append(name! + ": " + self.sendField.text! + "\n")
         self.sendField.text = ""
@@ -51,7 +53,7 @@ class ChatVC: UIViewController {
                 let separate: String = value
                 let separatedArr = separate.components(separatedBy: ":")
                 if separatedArr[1] ?? "" == SN {
-                    self?.chatView.text?.append(separatedArr[0] + ": " + separatedArr[2] ?? " " + "\n")
+                    self?.chatView.text?.append(separatedArr[0] + ": " + separatedArr[2] + "\n")
                 }
                 //self?.chatView.text?.append(separatedArr[1] + "\n")
             }
