@@ -72,22 +72,6 @@
             </objects>
             <point key="canvasLocation" x="-1372.4637681159422" y="811.60714285714278"/>
         </scene>
-        <!--EXTRA-->
-        <scene sceneID="5Ra-1v-EaN">
-            <objects>
-                <viewController id="rWg-Ug-hy3" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="vTM-Xh-xzX">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" name="Winter Wizard"/>
-                        <viewLayoutGuide key="safeArea" id="bUA-Oo-Khh"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="EXTRA" image="star.fill" catalog="system" id="mJk-96-ZJb"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="x93-Qa-bNw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="351" y="46"/>
-        </scene>
         <!--Registration View Controller-->
         <scene sceneID="mJ0-gg-GdM">
             <objects>
@@ -478,7 +462,7 @@
                                 <rect key="frame" x="20" y="44" width="374" height="458"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mMf-ap-8Tv">
@@ -521,7 +505,6 @@
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="vVk-z2-aCe"/>
                         <segue destination="J5O-pe-FF2" kind="relationship" relationship="viewControllers" id="N6Q-xM-9AB"/>
-                        <segue destination="rWg-Ug-hy3" kind="relationship" relationship="viewControllers" id="0Qf-sm-2Zl"/>
                         <segue destination="PaA-Rd-f6B" kind="relationship" relationship="viewControllers" id="fJ4-Ts-wQk"/>
                     </connections>
                 </tabBarController>
@@ -534,7 +517,6 @@
         <image name="heart.fill" catalog="system" width="64" height="54"/>
         <image name="person.fill" catalog="system" width="64" height="60"/>
         <image name="plus" catalog="system" width="64" height="56"/>
-        <image name="star.fill" catalog="system" width="64" height="58"/>
         <namedColor name="Aquamarine">
             <color red="0.56470588235294117" green="1" blue="0.86274509803921573" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

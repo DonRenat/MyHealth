@@ -72,7 +72,7 @@ class ViewControllerSettings: UIViewController {
         regButton.layer.cornerRadius = 15
         regButton.layer.cornerCurve = .continuous
         
-        let namefinal = name! + " " + fam!
+        let namefinal = (name ?? " ") + " " + (fam ?? " ")
         let avatarImage = LetterAvatarMaker()
             .setUsername(namefinal)
             .setBackgroundColors([UIColor.init(named: "Aquamarine")!])

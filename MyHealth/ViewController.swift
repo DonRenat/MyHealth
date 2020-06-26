@@ -24,8 +24,8 @@ class ViewController: UIViewController, ChartViewDelegate {
     var temperature : [Double] = [36.7, 37.0, 38.2, 39.3, 37.0, 36.6]
     //var temperature : [Double] = [] //delete hardcoded data
     var pulse : [Double] = [66, 80, 73, 55, 59, 90]
-    var status = ["Good", "Medium", "Bad", "SOS"]
-    var statusAmount = [10, 13, 4, 1]
+    var status = ["Хорошее", "Неуверенное", "Плохое"]
+    var statusAmount = [18, 8, 7,]
     
     var returnThisArray : [Int] = []
     
@@ -222,21 +222,11 @@ class ViewController: UIViewController, ChartViewDelegate {
         returnThisArray.removeAll()
         Alamofire.request("https://fakemyapi.com/api/fake?id=b97f7e56-86f4-4dd4-b596-a15ce4b91e09", method: .post, encoding: JSONEncoding.default)
                     .responseJSON { response in
-                        /*if let status = response.response?.statusCode {
-                            switch(status){
-                            case 200:
-                                print("example success")
-                            default:
-                                print("error with response status: \(status)")
-                            }
-                        }*/
                         if let result = response.result.value {
                         let JSON = result as! NSDictionary
                         guard let temps = JSON["temperature"] as? [[String: Any]] else {return}
                         for obj in temps {
-                            //print(obj["temp"]!)
-                            //self.returnThisArray.append(obj["temp"]! as! Int)
-                            self.returnThisArray.append((obj["temp"]! as! Int)%6+36) //kolhoz
+                            self.returnThisArray.append((obj["temp"]! as! Int)%6+36)
                         }
                     }
                 }

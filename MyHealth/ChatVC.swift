@@ -38,7 +38,7 @@ class ChatVC: UIViewController {
         print(text)
         socket.emit("chat message", text)
         //socket.emit("chat message", [name!, self.sendField.text!])
-        self.chatView.text?.append(name! + ": " + self.sendField.text! + "\n")
+        //self.chatView.text?.append(name! + ": " + self.sendField.text! + "\n")
         self.sendField.text = ""
     }
     

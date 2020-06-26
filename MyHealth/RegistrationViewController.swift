@@ -102,7 +102,7 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
                 
             let viewController = self.storyboard?.instantiateViewController(withIdentifier: "tabbar") as! UITabBarController
             viewController.modalPresentationStyle = .fullScreen
-            viewController.selectedIndex = 3
+            viewController.selectedIndex = 2
             self.present(viewController, animated: true, completion: nil)
             
                 
