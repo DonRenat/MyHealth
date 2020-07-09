@@ -10,7 +10,7 @@ import UIKit
 import SocketIO
 import Foundation
 
-let manager = SocketManager(socketURL: URL(string: "http://donrenat.ddns.net:4444")!, config: [.log(true), .compress])
+let manager = SocketManager(socketURL: URL(string: "http://192.168.1.78:4000/")!, config: [.log(true), .compress])
 let socket = manager.defaultSocket
 
 let name = UserDefaults.standard.string(forKey: "NameKey")
